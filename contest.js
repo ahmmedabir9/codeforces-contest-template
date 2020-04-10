@@ -31,6 +31,10 @@ let getTestCaseFromProblemHtml = (dir, html) => {
 };
 
 function getTestCaseFromProblemUrl(url) {
+  if (!fs.existsSync('./Problemset')) {
+    fs.mkdirSync('./Problemset');
+  }
+
   var dir = `./Problemset/${url.substring(url.lastIndexOf('/') + 1)}`;
 
   if (!fs.existsSync(dir)) {
