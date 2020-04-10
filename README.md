@@ -19,7 +19,7 @@ export CF_CONTEST=https://codeforces.com/contest/1330
 node contest.js
 # will visit all the problems of the contest
 # download their testcases
-# create multiple directories A B C D E inside the Codeforces directory depending on the number of problems in contest
+# create multiple directories A B C D E inside the Problemset directory depending on the number of problems in contest
 # each directory created will have
 #    sol.cpp of default template
 #    sol.cpp:tests which will contain the testcases and correct answers
