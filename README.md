@@ -1,35 +1,35 @@
-# Live Demo
-Watch the YouTube video showing the live demo -> [here](https://www.youtube.com/watch?v=MXYmbJO4bqU)
+## Codeforces Contest Setup with CPPFastOlympicCoding Package in Sublime Text
+
+You can save your time during contest time. You don't have to write the testcases again and again. This setup will download all of your testcases from the contest and run your solution with those tescases.
 
 # Setup/Installation
+
+Open your Terminal/Command in the directory for the project and run these commands.
+
 ```bash
-INSTALLATION_PATH="<directory_path_where_you_want_to_clone>"; # also the dir where you will write solution
-cd $INSTALLATION_PATH
-git clone https://github.com/rachitiitr/CodeforcesContestBot.git
-cd CodeforcesContestBot
-npm install
+git clone "https://github.com/ahmmedabir9/codeforces-contest-template.git"
+cd codeforces-contest-template
+npm install #install the dependencies from package.json
 ```
 
 # Usage
+
 ```bash
 export CF_CONTEST=https://codeforces.com/contest/1330
-node script.js
-# will parse all the problems of the contest
+node contest.js
+# will visit all the problems of the contest
 # download their testcases
-# create multiple directories A B C D E depending on the number of problems in contest
-# each directory created will have 
-#    in0.txt out0.txt 
-#    in1.txt out1.txt and so on 
-# which represent the testcases downloaded
+# create multiple directories A B C D E inside the Codeforces directory depending on the number of problems in contest
+# each directory created will have
+#    sol.cpp of default template
+#    sol.cpp:tests which will contain the testcases and correct answers
 ```
 
-# Running sol.cpp on multiple testcases and comparing outputs
-```bash
-./runall.sh A #if you want to test A/sol.cpp
-./runall.sh D #if you want to test D/sol.cpp against your output vs sample output
-# this will open vim window
-# and compare your sol.cpp output v/s sample output for all test cases
-# each test case is compared in each tab
-# press gt to cycle through the vim tabs
-# write :qa! to exit all tabs at once
-```
+# Sublime Text Setup
+
+1. Install Sublime Text
+2. Install Package `CPPFastOlympicCoding` from package installer or manually
+3. Open the Codeforces Directory with Sublime Text
+4. Press `Ctrl+Alt+B`
+5. The test name will be `green` if the test is passed othewise it will be `grey`
+6. You can also run over multiple test cases and save them.
