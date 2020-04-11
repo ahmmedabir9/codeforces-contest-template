@@ -2,6 +2,17 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 var fs = require('fs');
 
+let contest = process.env.CF_CONTEST.substring(
+  process.env.CF_CONTEST.lastIndexOf('/') + 1
+);
+console.log('######################################');
+console.log(`\nContest: Codeforces-${contest}`);
+console.log('\nPlease wait for Codeforces Server Response...');
+
+if (!fs.existsSync('./Problemset')) {
+  fs.mkdirSync('./Problemset');
+}
+
 let getTestCaseFromProblemHtml = (dir, html) => {
   fs.copyFileSync(`./template.cpp`, `${dir}/sol.cpp`);
   data = [];
@@ -24,18 +35,18 @@ let getTestCaseFromProblemHtml = (dir, html) => {
     if (err) {
       console.log(err);
     }
-    console.log(
-      `Problem ${dir.substring(dir.lastIndexOf('/') + 1)} was saved!`
-    );
+    console.log(`Problem ${dir.substring(dir.lastIndexOf('/') + 1)} saved!`);
   });
 };
 
 function getTestCaseFromProblemUrl(url) {
-  if (!fs.existsSync('./Problemset')) {
-    fs.mkdirSync('./Problemset');
+  if (!fs.existsSync(`./Problemset/${contest}`)) {
+    fs.mkdirSync(`./Problemset/${contest}`);
   }
 
-  var dir = `./Problemset/${url.substring(url.lastIndexOf('/') + 1)}`;
+  var dir = `./Problemset/${contest}/${url.substring(
+    url.lastIndexOf('/') + 1
+  )}`;
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
@@ -58,6 +69,12 @@ let getTotalProblemsFromContestHtml = (html) => {
   });
 };
 
-axios.get(process.env.CF_CONTEST).then((response) => {
-  getTotalProblemsFromContestHtml(response.data);
-});
+axios
+  .get(process.env.CF_CONTEST)
+  .then((response) => {
+    getTotalProblemsFromContestHtml(response.data);
+    console.log('\nAll the Problems are fetched successfully\n');
+  })
+  .catch((error) => {
+    console.log('Server is not Available right now');
+  });
