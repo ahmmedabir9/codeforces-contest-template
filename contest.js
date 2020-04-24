@@ -14,24 +14,30 @@ if (!fs.existsSync('./Problemset')) {
 }
 
 let getTestCaseFromProblemHtml = (dir, html) => {
-  fs.copyFileSync(`./template.cpp`, `${dir}/sol.cpp`);
+  fs.copyFileSync(`./template.cpp`, `${dir}/solve.cpp`);
   data = [];
   const $ = cheerio.load(html);
 
   $('div.output').each((i, elem) => {
-    str = $(elem).text().substring('Output'.length);
+    str = $(elem).text().trim();
+    str = str.substring('Output'.length);
+    str = str.trim();
+
     data[i] = {
       ...data[i],
-      correct_answers: [str.substring(0, str.length - 1)],
+      correct_answers: [str],
     };
   });
   $('div.input').each((i, elem) => {
+    str = $(elem).text().trim();
+    str = str.substring('Output'.length);
+    str = str.trim();
     data[i] = {
       ...data[i],
-      test: $(elem).text().substring('Input'.length),
+      test: `${str}\n`,
     };
   });
-  fs.writeFile(`${dir}/sol.cpp:tests`, JSON.stringify(data), function (err) {
+  fs.writeFile(`${dir}/solve.cpp:tests`, JSON.stringify(data), function (err) {
     if (err) {
       console.log(err);
     }
