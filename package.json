@@ -1,8 +1,8 @@
 {
-  "name": "codeforces-contest-bot",
+  "name": "codeforces-contest-template",
   "version": "1.0.0",
-  "description": "Developed by rachitiitr",
-  "main": "script.js",
+  "description": "Developed by Ahmmed Abir. Inspired from rachitiitr",
+  "main": "contest.js",
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3"
@@ -13,19 +13,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rachitiitr/CodeforcesContestBot.git"
+    "url": "git+https:github.com/ahmmedabir9/codeforces-contest-template.git"
   },
   "keywords": [
     "competitive-programming",
     "javascript",
-    "bot",
-    "codeforces-bot",
-    "rachitiitr"
+    "template",
+    "codeforces",
+    "CF-contest",
+    "Sublime-Text",
+    "CPPFstOlympicCoding",
+    "abir"
   ],
-  "author": "Rachit Jain",
+  "author": "Ahmmed Abir",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rachitiitr/CodeforcesContestBot/issues"
+    "url": "https://github.com/ahmmedabir9/codeforces-contest-template/issues"
   },
-  "homepage": "https://github.com/rachitiitr/CodeforcesContestBot#readme"
+  "homepage": "https://github.com/ahmmedabir9/codeforces-contest-template#readme"
 }

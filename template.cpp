@@ -8,7 +8,7 @@
 #define maxx 1000000005
 #define MOD 1000003
 #define mem(a) memset(a, 0, sizeof(a))
-#define pi 3.14159265358979323846
+// #define pi 3.14159265358979323846
 #define si(x)	scanf("%d",&x)
 #define sl(x)	scanf("%lld",&x)
 #define ss(s)	scanf("%s",s)
@@ -17,6 +17,7 @@
 #define ps(s)	printf("%s\n",s)
 #define out(x) cout << x << endl
 #define all(x) x.begin(), x.end()
+#define empty -1
 
 using namespace std;
 
